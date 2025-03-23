@@ -1,20 +1,13 @@
 from tkinter import*
-window = Tk()
-window.title("Event Handler")
-window.geometry("100x100")
+from tkinter import messagebox
 
-def handle_keypress(event):
-    """Print the character associated to the key pressed"""
-    print(event.char)
+root = Tk()
+root.geometry("300x300")
 
-window.bind("<Key>", handle_keypress)
+def msg():
+    messagebox.askokcancel("Alert", "Stop! Virus Found!")
 
-def handle_click(event):
-    print("\nThe button was clicked")
+button = Button(root, text="Scan for virus", command=msg)
+button.place(x=40,y=80)
 
-button = Button(text ="Click me!")
-button.pack()
-
-button.bind("<Button-1>", handle_click)
-
-window.mainloop()
+root.mainloop()
